@@ -9,7 +9,7 @@
 </head>
 <body>
     <article>
-        <h1><a href="/post"> My First Post</a></h1>
+        <h1><a href="/posts/my-first-post"> My First Post</a></h1>
 
         <p>
             Lorem ipsum dolor, sit amet consectetur adipisicing elit. Saepe eius sapiente rem molestiae aut itaque expedita optio, pariatur odio illo, officiis porro ipsa repellendus tempore voluptatem distinctio impedit alias consectetur vel, autem qui commodi minus laboriosam. Nulla id beatae ex earum saepe quo impedit harum error iure incidunt ratione quis aliquid voluptatem debitis voluptas, nostrum ullam? Dolor perspiciatis ratione ea porro, illum, laborum facilis enim ducimus dolorem veritatis iste doloremque dolorum id. Corrupti ducimus, illo dolorum vel itaque eveniet placeat veniam quibusdam exercitationem praesentium. Earum, assumenda eius, exercitationem laborum quia soluta atque ullam sequi voluptatem ex et repellendus debitis praesentium.
@@ -17,7 +17,7 @@
     </article>
 
     <article>
-        <h1><a href="/post">My Second Post</a></h1>
+        <h1><a href="/posts/my-second-post">My Second Post</a></h1>
 
         <p>
             Lorem ipsum dolor, sit amet consectetur adipisicing elit. Saepe eius sapiente rem molestiae aut itaque expedita optio, pariatur odio illo, officiis porro ipsa repellendus tempore voluptatem distinctio impedit alias consectetur vel, autem qui commodi minus laboriosam. Nulla id beatae ex earum saepe quo impedit harum error iure incidunt ratione quis aliquid voluptatem debitis voluptas, nostrum ullam? Dolor perspiciatis ratione ea porro, illum, laborum facilis enim ducimus dolorem veritatis iste doloremque dolorum id. Corrupti ducimus, illo dolorum vel itaque eveniet placeat veniam quibusdam exercitationem praesentium. Earum, assumenda eius, exercitationem laborum quia soluta atque ullam sequi voluptatem ex et repellendus debitis praesentium.
@@ -25,7 +25,7 @@
     </article>
 
     <article>
-        <h1><a href="/post">My Third Post</a></h1>
+        <h1><a href="/posts/my-third-post">My Third Post</a></h1>
 
         <p>
             Lorem ipsum dolor, sit amet consectetur adipisicing elit. Saepe eius sapiente rem molestiae aut itaque expedita optio, pariatur odio illo, officiis porro ipsa repellendus tempore voluptatem distinctio impedit alias consectetur vel, autem qui commodi minus laboriosam. Nulla id beatae ex earum saepe quo impedit harum error iure incidunt ratione quis aliquid voluptatem debitis voluptas, nostrum ullam? Dolor perspiciatis ratione ea porro, illum, laborum facilis enim ducimus dolorem veritatis iste doloremque dolorum id. Corrupti ducimus, illo dolorum vel itaque eveniet placeat veniam quibusdam exercitationem praesentium. Earum, assumenda eius, exercitationem laborum quia soluta atque ullam sequi voluptatem ex et repellendus debitis praesentium.
