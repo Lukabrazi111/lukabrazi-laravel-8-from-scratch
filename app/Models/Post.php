@@ -5,16 +5,15 @@ namespace App\Models;
 use Illuminate\Support\Facades\File;
 use Spatie\YamlFrontMatter\YamlFrontMatter;
 
-class Post
-{
+class Post {
     public $title;
     public $excerpt;
     public $date;
     public $body;
     public $slug;
 
-    public function __construct($title, $excerpt, $date, $body, $slug)
-    {
+    // constructor
+    public function __construct($title, $excerpt, $date, $body, $slug) {
         $this->title = $title;
         $this->excerpt = $excerpt;
         $this->date = $date;
@@ -22,24 +21,27 @@ class Post
         $this->slug = $slug;
     }
 
-    public static function find($slug)
-    {
-        return static::all()->firstWhere('slug', $slug);
-    }
 
-    public static function all()
-    {
-        return collect(File::files(resource_path("posts/")))
-            ->map(function ($file) {
-                $document = YamlFrontMatter::parseFile($file);
 
-                return new Post(
+    // function all
+    public static function all() {
+        return cache()->rememberForever('posts.all', function() {
+            return collect(File::files(resource_path("posts/")))
+                ->map(fn($file) => YamlFrontMatter::parseFile($file))
+                ->map(fn($document) => new Post(
                     $document->title,
                     $document->excerpt,
                     $document->date,
                     $document->body(),
                     $document->slug,
-                );
-            });
+                ))
+                ->sortByDesc('date');
+        });
+
+    }
+
+    // function find
+    public static function find($slug) {
+        return static::all()->firstWhere('slug', $slug);
     }
 }
