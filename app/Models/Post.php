@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Support\Facades\File;
 use Spatie\YamlFrontMatter\YamlFrontMatter;
 
@@ -22,10 +23,23 @@ class Post {
     }
 
 
+    // function find
+    public static function findOrFail($slug) {
+        $post = static::find($slug);
+        if (!$post) {
+            throw new ModelNotFoundException();
+        }
+
+        return $post;
+    }
+
+    public static function find($slug) {
+        return static::all()->firstWhere('slug', $slug);
+    }
 
     // function all
     public static function all() {
-        return cache()->rememberForever('posts.all', function() {
+        return cache()->rememberForever('posts.all', function () {
             return collect(File::files(resource_path("posts/")))
                 ->map(fn($file) => YamlFrontMatter::parseFile($file))
                 ->map(fn($document) => new Post(
@@ -38,10 +52,5 @@ class Post {
                 ->sortByDesc('date');
         });
 
-    }
-
-    // function find
-    public static function find($slug) {
-        return static::all()->firstWhere('slug', $slug);
     }
 }
