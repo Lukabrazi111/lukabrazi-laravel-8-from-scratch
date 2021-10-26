@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use Nette\Schema\ValidationException;
+
 class SessionsController extends Controller {
     public function create() {
         return view('sessions.create');
@@ -15,17 +17,18 @@ class SessionsController extends Controller {
         ]);
 
         // based on the provided credentials
-        if (auth()->attempt($attributes)) {
-            session()->regenerate();
-
-            // redirect with a success flash message
-            return redirect('/')->with('success', 'Welcome back!');
+        if (!auth()->attempt($attributes)) {
+            // auth failed
+            throw \Illuminate\Validation\ValidationException::withMessages([
+                'email' => 'Your provided credentials could not be verified.',
+            ]);
         }
 
-        // auth failed
-        return back()
-            ->withInput()
-            ->withErrors(['email' => ' You provided credentials could not be verified.']);
+        session()->regenerate();
+
+        // redirect with a success flash message
+        return redirect('/')->with('success', 'Welcome back!');
+
     }
 
     public function destroy() {
