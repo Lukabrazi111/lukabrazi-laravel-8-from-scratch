@@ -20,7 +20,7 @@ class RegisterController extends Controller {
 
         $user = User::create($attributes);
 
-        // Log the user in
+        // log the user in
         auth()->login($user); // <-- this = Auth::login($user)
 
 
