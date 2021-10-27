@@ -7,7 +7,8 @@ use App\Models\Post;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class CommentFactory extends Factory {
+class CommentFactory extends Factory
+{
     /**
      * The name of the factory's corresponding model.
      *
@@ -20,7 +21,8 @@ class CommentFactory extends Factory {
      *
      * @return array
      */
-    public function definition() {
+    public function definition()
+    {
         return [
             'post_id' => Post::factory(),
             'user_id' => User::factory(),
