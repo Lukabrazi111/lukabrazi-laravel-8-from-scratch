@@ -1,9 +1,9 @@
 <?php
 
+use App\Http\Controllers\PostCommentController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\SessionsController;
-use App\Http\Controllers\PostCommentController;
 use Illuminate\Support\Facades\Route;
 
 /*
