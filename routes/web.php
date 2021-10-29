@@ -18,20 +18,30 @@ use MailchimpMarketing\ApiClient;
 |
 */
 
-Route::get('ping', function () {
-    $mailchimp = new ApiClient();
+Route::post('newsletter', function () {
+	request()->validate(['email' => 'required|email']);
+	$mailchimp = new ApiClient();
 
-    $mailchimp->setConfig([
-        'apiKey' => config('services.mailchimp.key'),
-        'server' => 'us5'
-    ]);
+	$mailchimp->setConfig([
+		'apiKey' => config('services.mailchimp.key'),
+		'server' => 'us5',
+	]);
 
-    $response = $mailchimp->lists->addListMember('fe8f380b56', [
-        'email_address' => 'lukakhangoshvili@gmail.com',
-        'status' => 'subscribed',
-    ]);
+	try
+	{
+		$response = $mailchimp->lists->addListMember('fe8f380b56', [
+			'email_address' => request('email'),
+			'status'        => 'subscribed',
+		]);
+	}
+	catch (\Exception $e)
+	{
+		throw \Illuminate\Validation\ValidationException::withMessages([
+			'email' => 'This email could not be added to our newsletter list.',
+		]);
+	}
 
-    ddd($response);
+	return redirect('/')->with('success', 'You are now signed up for our newsletter');
 });
 
 Route::get('/', [PostController::class, 'index'])->name('home');
