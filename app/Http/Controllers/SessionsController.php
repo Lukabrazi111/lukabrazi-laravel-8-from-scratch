@@ -2,38 +2,40 @@
 
 namespace App\Http\Controllers;
 
-use Nette\Schema\ValidationException;
+class SessionsController extends Controller
+{
+	public function create()
+	{
+		return view('sessions.create');
+	}
 
-class SessionsController extends Controller {
-    public function create() {
-        return view('sessions.create');
-    }
+	public function store()
+	{
+		// validate the request
+		$attributes = request()->validate([
+			'email'    => 'required|email',
+			'password' => 'required',
+		]);
 
-    public function store() {
-        // validate the request
-        $attributes = request()->validate([
-            'email' => 'required|email',
-            'password' => 'required',
-        ]);
+		// based on the provided credentials
+		if (!auth()->attempt($attributes))
+		{
+			// auth failed
+			throw \Illuminate\Validation\ValidationException::withMessages([
+				'email' => 'Your provided credentials could not be verified.',
+			]);
+		}
 
-        // based on the provided credentials
-        if (!auth()->attempt($attributes)) {
-            // auth failed
-            throw \Illuminate\Validation\ValidationException::withMessages([
-                'email' => 'Your provided credentials could not be verified.',
-            ]);
-        }
+		session()->regenerate();
 
-        session()->regenerate();
+		// redirect with a success flash message
+		return redirect('/')->with('success', 'Welcome back!');
+	}
 
-        // redirect with a success flash message
-        return redirect('/')->with('success', 'Welcome back!');
+	public function destroy()
+	{
+		auth()->logout();
 
-    }
-
-    public function destroy() {
-        auth()->logout();
-
-        return redirect('/')->with('success', 'Goodbye!');
-    }
+		return redirect('/')->with('success', 'Goodbye!');
+	}
 }
