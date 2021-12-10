@@ -4,7 +4,7 @@
 <link rel="stylesheet" href="{{ asset('css/app.css') }}">
 <link rel="preconnect" href="https://fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
-<script defer src="https://unpkg.com/alpinejs@3.4.2/dist/cdn.min.js"></script>
+<script src="{{ asset('js/app.js') }}" defer></script>
 
 <body style="font-family: Open Sans, sans-serif">
 <section class="px-6 py-8">
