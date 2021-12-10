@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Validation\ValidationException;
+
 class SessionsController extends Controller
 {
 	public function create()
@@ -21,7 +23,7 @@ class SessionsController extends Controller
 		if (!auth()->attempt($attributes))
 		{
 			// auth failed
-			throw \Illuminate\Validation\ValidationException::withMessages([
+			throw ValidationException::withMessages([
 				'email' => 'Your provided credentials could not be verified.',
 			]);
 		}
