@@ -1,15 +1,11 @@
 # Laravel 8 From Scratch
 
----
 Laravel From Scratch is a web application, where you can see the posts with different categories and authors,
 also you can upload your posts as well and share your opinion about other posts.
 
 ![blog image](public/images/Laravel%20From%20Scratch%20Blog.png)
-___
-
 
 ## Prerequisites
-
 
 - [composer@2.1.9](https://getcomposer.org/)
 - [php@8.0.8](https://www.php.net/downloads.php)
@@ -42,8 +38,6 @@ cp .env.example .env
 ```
 This command should provide **.env** file all the necessary environment variables:
 
-___
-
 ## Mysql
 
 Now we need to provide **.env** file all necessary environment variables.
@@ -72,7 +66,6 @@ After setting up **.env** file, execute:
 php artisan key:generate
 ```
 Which generates auth key.
-___
 
 ### Seed database migration
 Make SQLITE or MYSQL database user and connect to this project, then you can execute the commends:
@@ -80,7 +73,6 @@ Make SQLITE or MYSQL database user and connect to this project, then you can exe
 php artisan migrate:fresh --seed
 ```
 
-___
 
 ## Database Diagram
 - **[Diagram](https://drawsql.app/redberry-15/diagrams/laravel-8-from-scratch-diagram)**
