@@ -22,6 +22,6 @@ class NewsletterController extends Controller
 			]);
 		}
 
-		return redirect('/')->with('success', 'You are now signed up for our newsletter');
+		return redirect(route('home'))->with('success', 'You are now signed up for our newsletter');
 	}
 }
