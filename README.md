@@ -1,21 +1,21 @@
 # Laravel 8 From Scratch
 
-___
-
+---
 Laravel From Scratch is a web application, where you can see the posts with different categories and authors,
 also you can upload your posts as well and share your opinion about other posts.
 
 ![blog image](public/images/Laravel%20From%20Scratch%20Blog.png)
-
 ___
 
-##Prerequisites
+
+## Prerequisites
+
 
 - [composer@2.1.9](https://getcomposer.org/)
 - [php@8.0.8](https://www.php.net/downloads.php)
 - [npm@8.1.0](https://nodejs.org/en/download/)
 
-##Built with
+## Built with
 
 - [Laravel](https://laravel.com/)
 - [Alphine.js](https://alpinejs.dev/)
@@ -44,8 +44,10 @@ This command should provide **.env** file all the necessary environment variable
 
 ___
 
-###Mysql
+## Mysql
+
 Now we need to provide **.env** file all necessary environment variables.
+
 ```
 DB_CONNECTION=mysql
 DB_HOST=127.0.0.1
@@ -72,7 +74,7 @@ php artisan key:generate
 Which generates auth key.
 ___
 
-###Seed database migration
+### Seed database migration
 Make SQLITE or MYSQL database user and connect to this project, then you can execute the commends:
 ```
 php artisan migrate:fresh --seed
@@ -80,19 +82,19 @@ php artisan migrate:fresh --seed
 
 ___
 
-##Database Diagram
+## Database Diagram
 - **[Diagram](https://drawsql.app/redberry-15/diagrams/laravel-8-from-scratch-diagram)**
 
 ![blog image](public/images/Laravel%208%20From%20Scratch%20Diagram%20DrawSQL.png)
 
-##Built-in development
+## Built-in development
 
 You can run Laravel built-in development server by executing:
 ```
 php artisan serve
 ```
 
-###**Now, you should be good to go!** :sunglasses:
+### **Now, you should be good to go!** :sunglasses:
 
 
 
