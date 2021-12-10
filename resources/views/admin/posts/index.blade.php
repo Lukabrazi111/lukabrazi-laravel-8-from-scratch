@@ -25,7 +25,7 @@
                                     </td>
 
                                     <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                                        <form action="/admin/posts/{{ $post->id }}" method="post">
+                                        <form action="{{ route('admin.posts.destroy', $post->id) }}" method="post">
                                             @csrf
                                             @method('DELETE')
 
