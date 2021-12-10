@@ -23,7 +23,7 @@ class RegisterController extends Controller
 		$user = User::create($attributes);
 
 		// log the user in
-		auth()->login($user); // <-- this = Auth::login($user)
+		auth()->login($user);
 
 		session()->flash('success', 'Your account has been created!');
 
