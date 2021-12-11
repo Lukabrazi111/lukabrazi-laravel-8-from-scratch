@@ -19,24 +19,24 @@ also you can upload your posts as well and share your opinion about other posts.
 
 ## Getting Started
 
-1. First of all you need to clone Laravel 8 From Scratch repository from github.
+1. First of all you need to clone Laravel 8 From Scratch repository from github:
 ```
 git clone https://github.com/RedberryInternship/lukabrazi-laravel-8-from-scratch
 ```
-2. Next step requires you to run ``composer install`` in order to install all the dependencies.
+2. Next step requires you to run ``composer install`` in order to install all the dependencies:
 ```
 composer install
 ```
-3. After you have to install all the JS dependencies.
+3. After you have to install all the JS dependencies:
 ```
 npm install
 npm run dev
 ```
-4. Now we need to set our **.env** file. Go to the root of your project and execute this command.
+4. Now we need to set our **.env** file. Go to the root of your project and execute this command:
 ```
 cp .env.example .env
 ```
-This command should provide **.env** file all the necessary environment variables:
+This command should provide **.env** file all the necessary environment variables.
 
 ## Mysql
 
@@ -68,7 +68,7 @@ php artisan key:generate
 Which generates auth key.
 
 ### Seed database migration
-Make SQLITE or MYSQL database user and connect to this project, then you can execute the commends:
+Make SQLITE or MYSQL database user and connect to this project, then you can execute the command:
 ```
 php artisan migrate:fresh --seed
 ```
