@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use App\Models\Post;
+use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 
 class AdminPostController extends Controller
@@ -20,9 +21,9 @@ class AdminPostController extends Controller
 		return view('admin.posts.create', ['categories' => Category::all()]);
 	}
 
-	public function store()
+	public function store(Request $request)
 	{
-		$attributes = request()->validate([
+		$attributes = $request->validate([
 			'title'       => 'required',
 			'thumbnail'   => 'required|image',
 			'slug'        => ['required', Rule::unique('posts', 'slug')],

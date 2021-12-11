@@ -19,22 +19,6 @@ use MailchimpMarketing\ApiClient;
 |
 */
 
-Route::get('ping', function () {
-	$mailchimp = new ApiClient();
-
-	$mailchimp->setConfig([
-		'apiKey' => config('services.mailchimp.key'),
-		'server' => 'us5',
-	]);
-
-	$response = $mailchimp->lists->addListMember('fe8f380b56', [
-		'email_address' => 'lukakhangoshvili@gmail.com',
-		'status'        => 'subscribed',
-	]);
-
-	ddd($response);
-});
-
 Route::get('/', [PostController::class, 'index'])->name('home');
 Route::get('posts/{post:slug}', [PostController::class, 'show'])->name('show');
 
