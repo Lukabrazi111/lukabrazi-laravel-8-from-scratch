@@ -1,6 +1,6 @@
 @auth
     <x-panel>
-        <form action="/posts/{{ $post->slug }}/comments" method="post">
+        <form action="{{ route('posts.store', $post->slug) }}" method="post">
             @csrf
 
             <header class="flex items-center">
@@ -30,6 +30,6 @@
     </x-panel>
 @else
     <p class="font-semibold">
-        <a href="/login" class="hover:underline">Log In</a> to leave a comment.
+        <a href="{{ route('login.create') }}" class="hover:underline">Log In</a> to leave a comment.
     </p>
 @endauth
