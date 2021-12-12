@@ -23,12 +23,12 @@ Route::get('posts/{post:slug}', [PostController::class, 'show'])->name('show');
 
 Route::post('posts/{post:slug}/comments', [PostCommentController::class, 'store'])->name('posts.store');
 
-Route::get('register', [RegisterController::class, 'create'])->middleware('guest');
-Route::post('register', [RegisterController::class, 'store'])->middleware('guest');
+Route::get('register', [RegisterController::class, 'create'])->middleware('guest')->name('register.create');
+Route::post('register', [RegisterController::class, 'store'])->middleware('guest')->name('register.store');
 
-Route::get('login', [SessionsController::class, 'create'])->middleware('guest');
-Route::post('login', [SessionsController::class, 'store'])->middleware('guest');
-Route::post('logout', [SessionsController::class, 'destroy'])->middleware('auth');
+Route::get('login', [SessionsController::class, 'create'])->middleware('guest')->name('login.create');
+Route::post('login', [SessionsController::class, 'store'])->middleware('guest')->name('login.store');
+Route::post('logout', [SessionsController::class, 'destroy'])->middleware('auth')->name('logout.destroy');
 
 // Admin
 Route::post('admin/posts', [AdminPostController::class, 'store'])->middleware('admin')->name('admin.posts.store');

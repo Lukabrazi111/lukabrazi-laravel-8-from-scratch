@@ -4,7 +4,7 @@
             <x-panel>
                 <h1 class="text-center font-bold text-xl">Login!</h1>
 
-                <form action="/login" method="POST" class="mt-10">
+                <form action="{{ route('login.store') }}" method="POST" class="mt-10">
                     @csrf
 
                     <x-form.input name="email" type="email" autocomplete="username"/>

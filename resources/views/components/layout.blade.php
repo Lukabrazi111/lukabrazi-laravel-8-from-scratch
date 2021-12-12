@@ -10,7 +10,7 @@
 <section class="px-6 py-8">
     <nav class="md:flex md:justify-between md:items-center">
         <div>
-            <a href="/">
+            <a href="{{ route('home') }}">
                 <img src="{{ asset('images/logo.svg') }}" alt="Laracasts Logo" width="165" height="16">
             </a>
         </div>
@@ -22,24 +22,24 @@
                         <button class="text-xs font-bold uppercase">Welcome, {{ auth()->user()->name }}!</button>
                     </x-slot>
 
-                    <x-dropdown-item href="/admin/posts" :active="request()->is('admin/posts')">Dashboard
+                    <x-dropdown-item href="{{ route('admin.posts.store') }}" :active="request()->is(route('admin.posts.create'))">Dashboard
                     </x-dropdown-item>
-                    <x-dropdown-item href="/admin/posts/create" :active="request()->is('admin/posts/create')">New Post
+                    <x-dropdown-item href="{{ route('admin.posts.create') }}" :active="request()->is(route('admin.posts.create'))">New Post
                     </x-dropdown-item>
                     <x-dropdown-item href="#" x-data="{}"
                                      @click.prevent="document.querySelector('#logout-form').submit()">
                         Logout
                     </x-dropdown-item>
 
-                    <form id="logout-form" action="/logout" method="POST" class="hidden">
+                    <form id="logout-form" action="{{ route('logout.destroy') }}" method="POST" class="hidden">
                         @csrf
 
                     </form>
                 </x-dropdown>
 
             @else
-                <a href="/register" class="text-xs font-bold uppercase">Register</a>
-                <a href="/login" class="ml-6 text-xs font-bold uppercase">Log In</a>
+                <a href="{{ route('register.create') }}" class="text-xs font-bold uppercase">Register</a>
+                <a href="{{ route('login.create') }}" class="ml-6 text-xs font-bold uppercase">Log In</a>
             @endauth
 
             <a href="#newsletter"

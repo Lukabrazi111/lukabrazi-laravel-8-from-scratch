@@ -48,9 +48,9 @@ class AdminPostController extends Controller
 		]);
 	}
 
-	public function update(Post $post)
+	public function update(Post $post, Request $request)
 	{
-		$attributes = request()->validate([
+		$attributes = $request->validate([
 			'title'       => 'required',
 			'thumbnail'   => 'image',
 			'slug'        => ['required', Rule::unique('posts', 'slug')->ignore($post->id)],

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use Illuminate\Http\Request;
 
 class RegisterController extends Controller
 {
@@ -11,9 +12,9 @@ class RegisterController extends Controller
 		return view('register.create');
 	}
 
-	public function store()
+	public function store(Request $request)
 	{
-		$attributes = request()->validate([
+		$attributes = $request->validate([
 			'name'     => 'required|max:255',
 			'username' => 'required|max:255|min:3|unique:users,username',
 			'email'    => 'required|max:255|unique:users,email',
@@ -22,7 +23,6 @@ class RegisterController extends Controller
 
 		$user = User::create($attributes);
 
-		// log the user in
 		auth()->login($user);
 
 		session()->flash('success', 'Your account has been created!');
