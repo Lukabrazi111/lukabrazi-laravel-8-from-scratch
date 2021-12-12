@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\AdminPostControllerRequest;
 use App\Models\Category;
 use App\Models\Post;
 use Illuminate\Http\Request;
@@ -21,16 +22,9 @@ class AdminPostController extends Controller
 		return view('admin.posts.create', ['categories' => Category::all()]);
 	}
 
-	public function store(Request $request)
+	public function store(AdminPostControllerRequest $request)
 	{
-		$attributes = $request->validate([
-			'title'       => 'required',
-			'thumbnail'   => 'required|image',
-			'slug'        => ['required', Rule::unique('posts', 'slug')],
-			'excerpt'     => 'required',
-			'body'        => 'required',
-			'category_id' => ['required', Rule::exists('categories', 'id')],
-		]);
+		$attributes = $request->validated();
 
 		$attributes['user_id'] = auth()->id();
 		$attributes['thumbnail'] = request()->file('thumbnail')->store('thumbnails');
