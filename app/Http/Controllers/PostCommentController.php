@@ -2,12 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\PostCommentControllerRequest;
 use App\Models\Post;
 use Illuminate\Http\Request;
 
 class PostCommentController extends Controller
 {
-	public function store(Post $post, Request $request)
+	public function store(Post $post, PostCommentControllerRequest $request)
 	{
 		$attributes = $request->validated();
 
