@@ -5,8 +5,6 @@ namespace App\Http\Controllers;
 use App\Http\Requests\AdminPostControllerRequest;
 use App\Models\Category;
 use App\Models\Post;
-use Illuminate\Http\Request;
-use Illuminate\Validation\Rule;
 
 class AdminPostController extends Controller
 {
@@ -42,16 +40,9 @@ class AdminPostController extends Controller
 		]);
 	}
 
-	public function update(Post $post, Request $request)
+	public function update(Post $post, AdminPostControllerRequest $request)
 	{
-		$attributes = $request->validate([
-			'title'       => 'required',
-			'thumbnail'   => 'image',
-			'slug'        => ['required', Rule::unique('posts', 'slug')->ignore($post->id)],
-			'excerpt'     => 'required',
-			'body'        => 'required',
-			'category_id' => ['required', Rule::exists('categories', 'id')],
-		]);
+		$attributes = $request->validated();
 
 		if (isset($attributes['thumbnail']))
 		{
